@@ -14,7 +14,69 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      check_ins: {
+        Row: {
+          check_in_date: string
+          created_at: string
+          id: string
+          location: string
+          mood: string | null
+          notes: string | null
+          temperature: number
+          user_id: string
+          weather_condition: string
+        }
+        Insert: {
+          check_in_date?: string
+          created_at?: string
+          id?: string
+          location: string
+          mood?: string | null
+          notes?: string | null
+          temperature: number
+          user_id: string
+          weather_condition: string
+        }
+        Update: {
+          check_in_date?: string
+          created_at?: string
+          id?: string
+          location?: string
+          mood?: string | null
+          notes?: string | null
+          temperature?: number
+          user_id?: string
+          weather_condition?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          display_name: string | null
+          id: string
+          location: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          location?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          location?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
