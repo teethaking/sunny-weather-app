@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { WeatherCard } from "./WeatherCard";
 import { CheckInCard } from "./CheckInCard";
 import { WeatherSearch } from "./WeatherSearch";
+import { RealtimeCheckIns } from "./RealtimeCheckIns";
 import { useAuth } from "@/hooks/useAuth";
+import { useRealTime } from "@/hooks/useRealTime";
 import { Button } from "@/components/ui/button";
 import { LogOut } from "lucide-react";
 
@@ -15,12 +17,18 @@ interface WeatherData {
 
 export const WeatherApp = () => {
   const { signOut } = useAuth();
+  const { updatePresence } = useRealTime();
   const [weather, setWeather] = useState<WeatherData>({
     temperature: 32,
     condition: "Sunny",
     humidity: 68,
     location: "Kaduna, Nigeria"
   });
+
+  // Update user presence when weather location changes
+  useEffect(() => {
+    updatePresence(weather.location);
+  }, [weather.location, updatePresence]);
 
   const getWeatherForLocation = (location: string) => {
     // Mock weather data based on location - in a real app, you'd fetch from a weather API
@@ -76,7 +84,12 @@ export const WeatherApp = () => {
         
         <WeatherCard weather={weather} />
         
-        <CheckInCard lastCheckIn="Yesterday, 9:30 AM" />
+        <CheckInCard 
+          lastCheckIn="Yesterday, 9:30 AM" 
+          currentWeather={weather}
+        />
+
+        <RealtimeCheckIns onLocationChange={handleLocationChange} />
       </div>
     </div>
   );
