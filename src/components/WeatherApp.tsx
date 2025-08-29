@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { WeatherCard } from "./WeatherCard";
 import { CheckInCard } from "./CheckInCard";
 import { WeatherSearch } from "./WeatherSearch";
+import { useAuth } from "@/hooks/useAuth";
+import { Button } from "@/components/ui/button";
+import { LogOut } from "lucide-react";
 
 interface WeatherData {
   temperature: number;
@@ -11,6 +14,7 @@ interface WeatherData {
 }
 
 export const WeatherApp = () => {
+  const { signOut } = useAuth();
   const [weather, setWeather] = useState<WeatherData>({
     temperature: 32,
     condition: "Sunny",
@@ -52,7 +56,15 @@ export const WeatherApp = () => {
   return (
     <div className="min-h-screen gradient-sky p-4">
       <div className="max-w-md mx-auto space-y-6 pt-8">
-        <div className="text-center mb-8">
+        <div className="text-center mb-8 relative">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={signOut}
+            className="absolute right-0 top-0 text-muted-foreground hover:text-foreground"
+          >
+            <LogOut className="h-4 w-4" />
+          </Button>
           <h1 className="text-4xl font-bold text-foreground mb-2">Weather</h1>
           <p className="text-muted-foreground">Check the weather and check in daily</p>
         </div>
