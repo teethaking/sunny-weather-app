@@ -1,18 +1,15 @@
-# Welcome to your Lovable project
+# Welcome to your weather app
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/945d74c3-040b-4028-9e51-a80bffbff4cf
+
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
+**Use VSCODE**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/945d74c3-040b-4028-9e51-a80bffbff4cf) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
 
 **Use your preferred IDE**
 
@@ -61,10 +58,6 @@ This project is built with:
 - Tailwind CSS
 
 ## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/945d74c3-040b-4028-9e51-a80bffbff4cf) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
 
 Yes, you can!
 
