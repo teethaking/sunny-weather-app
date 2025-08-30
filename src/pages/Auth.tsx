@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Loader2, Cloud } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import floatingClouds from '@/assets/floating-clouds.webp';
 
 export default function Auth() {
   const [email, setEmail] = useState('');
@@ -144,8 +145,20 @@ export default function Auth() {
   };
 
   return (
-    <div className="min-h-screen gradient-sky flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen gradient-sky flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Animated floating clouds background */}
+      <div className="absolute inset-0 opacity-30">
+        <img 
+          src={floatingClouds} 
+          alt="Floating clouds" 
+          className="w-full h-full object-cover animate-float"
+          style={{
+            animation: 'float 6s ease-in-out infinite, drift 20s linear infinite'
+          }}
+        />
+      </div>
+      
+      <div className="w-full max-w-md relative z-10">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
             <Cloud className="h-16 w-16 text-primary" />

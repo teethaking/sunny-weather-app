@@ -149,4 +149,16 @@
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
   }
+  
+  @keyframes drift {
+    0% {
+      transform: translateX(-10px) scale(1.02);
+    }
+    50% {
+      transform: translateX(10px) scale(1);
+    }
+    100% {
+      transform: translateX(-10px) scale(1.02);
+    }
+  }
 }
